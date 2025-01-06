@@ -20,6 +20,7 @@ return new class extends Migration
             $table->rememberToken();
             // $table->string('type');
             $table->enum('type',['admin' ,'employee' , 'customer'])->default('customer');
+            $table->foreignId('role_id')->nullable()->constrained('roles')->nullOnDelete();
             $table->timestamps();
         });
     }
