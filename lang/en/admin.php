@@ -13,9 +13,11 @@ return [
     'all_role'=>'All Role',
 
     'orders'=>'Orders',
-    'payment'=>'Payment-',
+    'payment'=>'Payment',
 
     'customers'=>'Customers',
-    'add_new'=>'Add New'
+    'add_new'=>'Add New',
+    'langs'=>'Languages',
+    'out'=>'Logout'
 ];
 //
