@@ -57,8 +57,6 @@ class CategoryController extends Controller
         $category->image()->create([
             'path'=>$img_name
         ]);
-
-
         return redirect()
         ->route('admin.categories.index')
         ->with('msg','Category added successfully')

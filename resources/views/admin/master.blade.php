@@ -12,92 +12,101 @@
     <title>@yield('title', env('APP_NAME'))</title>
 
     <!-- Custom fonts for this template-->
-    <link href="{{asset('back/vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('back/vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
 
     <!-- Custom styles for this template-->
-    <link href="{{asset('back/css/sb-admin-2.min.css')}}" rel="stylesheet">
-@yield('css')
-<style>
-    .colors{
-        width:100px;
-        position: fixed ;
-        right: -60px;
-        top: 100px ;
-        display: flex ;
-        transition: all .3s ease ;
-    }
+    <link href="{{ asset('back/css/sb-admin-2.min.css') }}" rel="stylesheet">
+    @yield('css')
+    <style>
+        .colors {
+            width: 100px;
+            position: fixed;
+            right: -60px;
+            top: 100px;
+            display: flex;
+            transition: all .3s ease;
+        }
 
-    .colors.open {
-        right: 0;
-    }
-    .colors button{
-        background: #e2e2e2;
-        border: 0 ;
-        width: 40px ;
-        height: 40px;
-    }
-    .colors ul {
-        list-style: none;
-        margin: 0 ;
-        padding: 0 ;
-        display: flex ;
-        flex-wrap: wrap ;
-        background: #dedede ;
-        width: 60px ;
-        justify-content: center ;
-        padding:  5px 0;
-    }
-    .colors ul li{
-        width: 20px ;
-        height: 20px;
-        margin: 3px;
-        cursor: pointer;
+        .colors.open {
+            right: 0;
+        }
 
-    }
-</style>
-@if (App::getLocale() == 'ar')
-<style>
+        .colors button {
+            background: #e2e2e2;
+            border: 0;
+            width: 40px;
+            height: 40px;
+        }
 
-    .topbar .dropdown .dropdown-menu {
-        width: auto;
-        right: -100%;
-    }
+        .colors ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            background: #dedede;
+            width: 60px;
+            justify-content: center;
+            padding: 5px 0;
+        }
 
-    body{
-        direction: rtl ;
-        text-align: right ;
-    }
-    .colors{
-        right: unset;
-        left: -60px;
-    }
-    .colors.open{
-        right: unset;
-        left: 0;
+        .colors ul li {
+            width: 20px;
+            height: 20px;
+            margin: 3px;
+            cursor: pointer;
 
-    }
-    .sidebar{
-        padding: 0;
+        }
+    </style>
+    @if (App::getLocale() == 'ar')
+        <style>
+            .topbar .dropdown .dropdown-menu {
+                width: auto;
+                right: -100%;
+            }
 
-    }
-    .sidebar-dark .nav-item .nav-link{
-        text-align: right ;
-    }
-    .sidebar .nav-item .nav-link[data-toggle=collapse]::after{
-        float: left;
-        transform:rotate(180deg);
-    }
-    .ml-auto, .mx-auto {
-    margin-left: unset !important;
-    margin-right: auto !important;
-}
-</style>
+            body {
+                direction: rtl;
+                text-align: right;
+            }
 
-@endif
+            .colors {
+                right: unset;
+                left: -60px;
+            }
+
+            .colors.open {
+                right: unset;
+                left: 0;
+
+            }
+
+            .sidebar {
+                padding: 0;
+
+            }
+
+            .sidebar-dark .nav-item .nav-link {
+                text-align: right;
+            }
+
+            .sidebar .nav-item .nav-link[data-toggle=collapse]::after {
+                float: left;
+                transform: rotate(180deg);
+            }
+
+            .ml-auto,
+            .mx-auto {
+                margin-left: unset !important;
+                margin-right: auto !important;
+            }
+        </style>
+    @endif
 </head>
+
 <body id="page-top">
 
     <div class="colors">
@@ -133,22 +142,24 @@
 
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
-                                                <!-- Nav Item - User Information -->
-                                                <li class="nav-item dropdown no-arrow">
-                                                    <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
-                                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                        <span class="mr-2 d-none d-lg-inline text-gray-600 small"><i class="fas fa-globe"></i> {{__('admin.langs')}}</span>
-                                                    </a>
-                                                    <!-- Dropdown - User Information -->
-                                                    <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                                                        aria-labelledby="userDropdown">
-                                                        @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
-                                                        <a  class="dropdown-item" rel="alternate" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
-                                                            {{ $properties['native'] }}
-                                                        </a>
-                                                        @endforeach
-                                                    </div>
-                                                </li>
+                        <!-- Nav Item - User Information -->
+                        <li class="nav-item dropdown no-arrow">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><i class="fas fa-globe"></i>
+                                    {{ __('admin.langs') }}</span>
+                            </a>
+                            <!-- Dropdown - User Information -->
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                aria-labelledby="userDropdown">
+                                @foreach (LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+                                    <a class="dropdown-item" rel="alternate" hreflang="{{ $localeCode }}"
+                                        href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
+                                        {{ $properties['native'] }}
+                                    </a>
+                                @endforeach
+                            </div>
+                        </li>
 
                         <!-- Nav Item - Alerts -->
                         <li class="nav-item dropdown no-arrow mx-1">
@@ -197,7 +208,8 @@
                                         Spending Alert: We've noticed unusually high spending for your account.
                                     </div>
                                 </a>
-                                <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
+                                <a class="dropdown-item text-center small text-gray-500" href="#">Show All
+                                    Alerts</a>
                             </div>
                         </li>
 
@@ -208,25 +220,28 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{Auth::user()->name}}</span>
+                                <span
+                                    class="mr-2 d-none d-lg-inline text-gray-600 small">{{ Auth::user()->name }}</span>
+
                                 @php
 
                                     if (Auth::user()->image) {
-                                        $src = asset('images/'.Auth::user()->image->path);
-
+                                        $src = asset('images/' . Auth::user()->image->path);
+                                    } else {
+                                        $src =
+                                            'https://ui-avatars.com/api/?name=' .
+                                            Auth::user()->name .
+                                            '&background=random';
                                     }
-                                    else {
-                                        $src = 'https://ui-avatars.com/api/?name='.Auth::user()->name."&background=random";
 
-                                    }
                                 @endphp
-                                <img class="img-profile rounded-circle"
-                                    src="{{$src}}">
+
+                                <img class="img-profile rounded-circle" src="{{ $src }}">
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-left shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="#">
+                                <a class="dropdown-item" href="{{ route('admin.profile') }}">
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Profile
                                 </a>
@@ -239,9 +254,10 @@
                                     Activity Log
                                 </a>
                                 <div class="dropdown-divider"></div>
-                                <form action="{{route('logout')}}" method="POST">
+                                <form action="{{ route('logout') }}" method="POST">
                                     @csrf
-                                    <button class="dropdown-item">                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>{{__('admin.out')}}</button>
+                                    <button class="dropdown-item"> <i
+                                            class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>{{ __('admin.out') }}</button>
                                 </form>
 
                             </div>
@@ -255,7 +271,7 @@
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
 
-   @yield('content')
+                    @yield('content')
 
                 </div>
 
@@ -300,14 +316,14 @@
     </div>
 
     <!-- Bootstrap core JavaScript-->
-    <script src="{{asset('back/vendor/jquery/jquery.min.js')}}"></script>
-    <script src="{{asset('back/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+    <script src="{{ asset('back/vendor/jquery/jquery.min.js') }}"></script>
+    <script src="{{ asset('back/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 
     <!-- Core plugin JavaScript-->
-    <script src="{{asset('back/vendor/jquery-easing/jquery.easing.min.js')}}"></script>
+    <script src="{{ asset('back/vendor/jquery-easing/jquery.easing.min.js') }}"></script>
 
     <!-- Custom scripts for all pages-->
-    <script src="{{asset('back/js/sb-admin-2.min.js')}}"></script>
+    <script src="{{ asset('back/js/sb-admin-2.min.js') }}"></script>
     @yield('js')
     <script>
         document.querySelector('.colors button').onclick = () => {
@@ -319,13 +335,11 @@
                 let cl = el.classList[0];
                 document.querySelector('#sidebar_color').className = '';
                 document.querySelector('#sidebar_color').classList.add(cl)
-                localStorage.setItem('cl' ,cl)
+                localStorage.setItem('cl', cl)
             }
         });
-        let oldclass =localStorage.getItem('cl')??'bg-gradient-primary'
+        let oldclass = localStorage.getItem('cl') ?? 'bg-gradient-primary'
         document.querySelector('#sidebar_color').classList.add(oldclass)
-
-
     </script>
 
 </body>
