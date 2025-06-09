@@ -53,4 +53,11 @@ class AdminController extends Controller
 
         return redirect()->back()->with('msg','Profile Updated Successfully');
     }
+    function orders(){
+        return 'Order Page';
+    }
+    function notifications(){
+        return view('admin.notification');
+
+    }
 }

@@ -18,6 +18,8 @@ Route::prefix(LaravelLocalization::setLocale())->middleware('auth','is_admin','v
         Route::resource('categories',CategoryController::class);
         Route::resource('products',ProductController::class);
         Route::get('/delete-image/{id?}' ,[ProductController::class ,'delete_img'])->name('delete_img');
+        Route::get('/orders',[AdminController::class , 'orders'])->name('orders');
+        Route::get('/notifications',[AdminController::class , 'notifications'])->name('notifications');
 
 });
 });

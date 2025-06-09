@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\APIController;
+use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -36,4 +37,8 @@ require __DIR__ . '/auth.php';
 // Api test routes
 Route::get('old-products', [APIController::class, 'products']);
 
-//
+// test notification
+Route::get('/send',[NotificationController::class , 'send']);
+
+
+
